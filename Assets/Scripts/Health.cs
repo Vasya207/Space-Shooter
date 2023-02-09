@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
 
     [SerializeField] bool applyCameraShake;
     CameraShake cameraShake;
+    int startingHealth;
 
     AudioPlayer audioPlayer;
     ScoreKeeper scoreKeeper;
@@ -16,6 +17,7 @@ public class Health : MonoBehaviour
 
     void Awake()
     {
+        startingHealth = health;
         cameraShake = Camera.main.GetComponent<CameraShake>();
         audioPlayer = FindObjectOfType<AudioPlayer>();
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
@@ -37,6 +39,14 @@ public class Health : MonoBehaviour
     }
 
     public int GetHealth() { return health; }
+
+    public void AddToHealth(int value)
+    {
+        if (isPlayer)
+        {
+            health = Mathf.Clamp(health + value, 0, startingHealth);
+        }
+    }
 
     void TakeDamage(int damage)
     {
