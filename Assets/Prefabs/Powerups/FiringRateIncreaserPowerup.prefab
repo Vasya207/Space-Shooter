@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1082170316}
   - component: {fileID: 3744825672250371194}
   m_Layer: 8
-  m_Name: HealingPowerup
+  m_Name: FiringRateIncreaserPowerup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,10 +68,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee35ef58a022d0d4bb1f014f056a3a1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healler: 1
-  projectileSpeedMultiplier: 0
+  healler: 0
+  firingRateIncreaser: 1
   healAmount: 15
-  multiplyAmount: 1.2
+  increaseAmount: 1.1
 --- !u!61 &3744825672250371194
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 4b6fa0aba5227d94284181b5903d8357, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bb393f8d49903024c9c81faf97595f7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

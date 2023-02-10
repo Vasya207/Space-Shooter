@@ -75,4 +75,9 @@ public class Shooter : MonoBehaviour
             yield return new WaitForSeconds(timeToNextProjectile);
         }
     }
+
+    public void IncreaseFiringRate(float speedMultiplier)
+    {
+        baseFiringRate /= speedMultiplier;
+    }
 }

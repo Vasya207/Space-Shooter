@@ -1,10 +1,11 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerupsSpawner : MonoBehaviour
 {
     [Header("Powerups Prefabs")]
-    [SerializeField] GameObject powerup;
+    [SerializeField] List<GameObject> powerups;
 
     [Header("Spawn Time Settings")]
     [SerializeField] float timeBeforeFirstSpawn = 7.5f;
@@ -18,12 +19,14 @@ public class PowerupsSpawner : MonoBehaviour
 
     Vector2 minBounds;
     Vector2 maxBounds;
+
     Rigidbody2D powerupRigidbody;
 
     void Start()
     {
         SetBoundariesForSpawn();
         StartCoroutine(SpawnPowerups());
+        Debug.Log(powerups.Count);
     }
 
     IEnumerator SpawnPowerups()
@@ -35,7 +38,9 @@ public class PowerupsSpawner : MonoBehaviour
             Vector3 newSpawnPosition = new(randomXPos, transform.position.y, transform.position.z);
 
             GameObject powerupInstance = 
-                Instantiate(powerup, newSpawnPosition, Quaternion.identity, transform);
+                Instantiate(powerups[Random.Range(0, powerups.Count)], 
+                newSpawnPosition, 
+                Quaternion.identity, transform);
 
             powerupRigidbody = powerupInstance.GetComponent<Rigidbody2D>();
             if(powerupRigidbody != null)
