@@ -29,6 +29,7 @@ public class Player : NetworkBehaviour
 
     void Update()
     {
+        if (!IsOwner) return;
         PlayerMovement();
     }
 
@@ -55,6 +56,7 @@ public class Player : NetworkBehaviour
 
     void OnFire(InputValue value)
     {
+        if (!IsOwner) return;
         if(shooter != null)
         {
             shooter.isFiring = value.isPressed;

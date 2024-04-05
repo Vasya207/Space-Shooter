@@ -70,7 +70,8 @@ public class Shooter : MonoBehaviour
                 baseFiringRate + spawnTimeVariance);
             Mathf.Clamp(timeToNextProjectile, minimumSpawnTime, float.MaxValue);
 
-            audioPlayer.PlayShootingClip();
+            if(audioPlayer != null) 
+                audioPlayer.PlayShootingClip();
 
             yield return new WaitForSeconds(timeToNextProjectile);
         }
