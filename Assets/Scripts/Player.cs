@@ -1,7 +1,8 @@
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class Player : NetworkBehaviour
 {
     [SerializeField] float moveSpeed = 0.25f;
     Vector2 rawInput;
@@ -18,7 +19,7 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
-        shooter = FindObjectOfType<Shooter>();
+        shooter = GetComponent<Shooter>();
     }
 
     void Start()
